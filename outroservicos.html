@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Texto em Movimento</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #000;
+            color: #fff;
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        #text-container {
+            position: absolute;
+            font-size: 24px;
+            white-space: nowrap;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="text-container">páginas de outros serviços em desenvolvimento...</div>
+    <script>
+        const textContainer = document.getElementById('text-container');
+        let x = 100;
+        let y = 100;
+        let vx = 2;
+        let vy = 2;
+
+        const colors = [
+            { background: '#000', text: '#fff' },
+            { background: '#ff0000', text: '#00ff00' },
+            { background: '#0000ff', text: '#ffff00' },
+            { background: '#00ffff', text: '#ff00ff' },
+            { background: '#ff00ff', text: '#00ffff' },
+            { background: '#ffff00', text: '#0000ff' },
+            { background: '#00ff00', text: '#ff0000' },
+            { background: '#800080', text: '#008080' },
+            { background: '#ffa500', text: '#8a2be2' },
+            { background: '#008000', text: '#ff4500' },
+            // Adicione mais cores conforme desejado
+        ];
+
+        function getRandomColor() {
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+
+        function updatePosition() {
+            const containerWidth = textContainer.offsetWidth;
+            const containerHeight = textContainer.offsetHeight;
+            const maxWidth = window.innerWidth - containerWidth;
+            const maxHeight = window.innerHeight - containerHeight;
+
+            x += vx;
+            y += vy;
+
+            if (x <= 0 || x >= maxWidth) {
+                vx = -vx;
+                changeColors();
+            }
+
+            if (y <= 0 || y >= maxHeight) {
+                vy = -vy;
+                changeColors();
+            }
+
+            textContainer.style.left = x + 'px';
+            textContainer.style.top = y + 'px';
+            requestAnimationFrame(updatePosition);
+        }
+
+        function changeColors() {
+            const newColors = getRandomColor();
+            document.body.style.backgroundColor = newColors.background;
+            textContainer.style.color = newColors.text;
+        }
+
+        updatePosition();
+    </script>
+</body>
+</html>

@@ -1,0 +1,950 @@
+<html lang="pt-br">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="apple-mobile-web-app-status-bar-style" content="black"><meta name="format-detection" content="telephone=no">
+<meta name="generator" content="EngKing
+<meta name="apple-mobile-web-app-capable" content="no">
+<meta name="keywords" content="">
+<meta name="msapplication-tap-highlight" content="no">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
+<!titulo na guia>
+<title>Calculadora de BTUs</title>
+<!Cor>
+<link rel="stylesheet" href="cor.css" data-wnd_additive_color_file="">
+<!organizacao pagina e imagens>
+<link rel="stylesheet" href="imagens.css">
+<!barra navegar>
+<link rel="stylesheet" href="barra_navegacao.css" media="screen and (min-width:37.5em)">
+<!cor do fundo da pagina>
+<link rel="stylesheet" href="algumas_cores.css" data-wnd_color_scheme_file="">
+
+
+<!setinha do outros servicos e fonte>
+<link rel="preload stylesheet" href="https://d1di2lzuh97fh2.cloudfront.net/files/2v/2v4/2v414g.css?ph=dbc55ccc42" as="style">
+<!Fontes>
+<link rel="stylesheet" href="https://d1di2lzuh97fh2.cloudfront.net/files/0q/0qk/0qk8sv.css?ph=dbc55ccc42" data-wnd_typography_file="">
+
+
+<link rel="preconnect" href="https://d1di2lzuh97fh2.cloudfront.net" crossorigin="">
+<link href="https://d1di2lzuh97fh2.cloudfront.net/files/04/04p/04pi85.css?ph=dbc55ccc42" media="print" rel="stylesheet">
+<link href="https://d1di2lzuh97fh2.cloudfront.net/files/3f/3f9/3f9vvf.css?ph=dbc55ccc42" media="screen and (min-width:100000em)" rel="stylesheet" data-type="cq" disabled="">
+<link rel="stylesheet" href="https://d1di2lzuh97fh2.cloudfront.net/files/19/19m/19mvcd.css?ph=dbc55ccc42" data-wnd_color_scheme_desktop_file="" media="screen and (min-width:37.5em)">
+<link rel="stylesheet" href="https://d1di2lzuh97fh2.cloudfront.net/files/3s/3s1/3s1tpc.css?ph=dbc55ccc42" data-wnd_typography_desktop_file="" media="screen and (min-width:37.5em)">
+
+
+<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-92DTJYQXGQ&amp;l=_gtmDataLayer&amp;cx=c"></script>
+
+
+<script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-542MMSL&amp;l=_gtmDataLayer"></script>
+
+
+<script>
+(()=>{let e=!1;const t=()=>{if(!e&&window.innerWidth>=600){for(let e=0,t=document.querySelectorAll('head > link[href*="css"][media="screen and (min-width:37.5em)"]');e<t.length;e++)t[e].removeAttribute("disabled");e=!0}};t(),window.addEventListener("resize",t),"container"in document.documentElement.style||fetch(document.querySelector('head > link[data-type="cq"]').getAttribute("href")).then((e=>{e.text().then((e=>{const t=document.createElement("style");document.head.appendChild(t),t.appendChild(document.createTextNode(e)),import("https://d1di2lzuh97fh2.cloudfront.net/client/js.polyfill/container-query-polyfill.modern.js").then((()=>{let e=setInterval((function(){document.body&&(document.body.classList.add("cq-polyfill-loaded"),clearInterval(e))}),100)}))}))}))})()
+</script>
+
+
+<script>
+window.checkAndChangeSvgColor=function(c){try{var a=document.getElementById(c);if(a){c=[["border","borderColor"],["outline","outlineColor"],["color","color"]];for(var h,b,d,f=[],e=0,m=c.length;e<m;e++)if(h=window.getComputedStyle(a)[c[e][1]].replace(/\s/g,"").match(/^rgb[a]?\(([0-9]{1,3}),([0-9]{1,3}),([0-9]{1,3})/i)){b="";for(var g=1;3>=g;g++)b+=("0"+parseInt(h[g],10).toString(16)).slice(-2);"0"===b.charAt(0)&&(d=parseInt(b.substr(0,2),16),d=Math.max(16,d),b=d.toString(16)+b.slice(-4));f.push(c[e][0]+"="+b)}if(f.length){var k=a.getAttribute("data-src"),l=k+(0>k.indexOf("?")?"?":"&")+f.join("&");a.src!=l&&(a.src=l,a.outerHTML=a.outerHTML)}}}catch(n){}};
+</script>
+
+
+<script>
+	window._gtmDataLayer = window._gtmDataLayer || [];
+	(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+	var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+	j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})
+	(window,document,'script','_gtmDataLayer','GTM-542MMSL');
+</script>
+
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .calculator {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .calculator h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input[type="text"],
+        .form-group select {
+            width: calc(100% - 12px);
+            padding: 6px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group button {
+            background-color: #045389;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px; /* Bordas com cantos arredondados */
+            cursor: pointer;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .form-group button.add-button {
+            margin-right: 0;
+        }
+        .form-group button:hover {
+            background-color: #2196F3;
+        }
+        .form-group button.calcular-button {
+            display: block;
+            margin: 20px auto 10px;
+        }
+        .result {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .selected-appliances {
+            display: none;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .selected-appliances h3 {
+            margin-top: 0;
+        }
+        .selected-appliances ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .selected-appliances li {
+            margin-bottom: 5px;
+            padding: 5px;
+            background-color: #f9f9f9;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .selected-appliances .appliance-name {
+            flex-grow: 1;
+            color: black; /* Texto preto */
+        }
+        .selected-appliances .remove-appliance {
+            background-color: #8B0000;
+            color: white;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 25px; /* Bordas com cantos arredondados */
+            cursor: pointer;
+            font-size: 14px;
+            margin-left: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .selected-appliances .remove-appliance:hover {
+            background-color: 8b0000;
+            transform: scale(1.1); /* Efeito de escala ao passar o mouse */
+        }
+        .toggle-checkbox {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            cursor: pointer;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .toggle-checkbox:checked {
+            background-color: #045389;
+        }
+        .toggle-checkbox:checked::after {
+            content: '✓';
+            display: block;
+            text-align: center;
+            color: white
+        }
+        small {
+            display: block;
+            margin-top: 5px;
+            font-size: 12px;
+            color: #666;
+        }
+ #appliance-dropdown-container {
+    position: relative;
+}
+#selected-appliances-dropdown {
+    display: none;
+    position: relative;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1;
+}
+        #selected-appliances-dropdown button {
+            background-color: transparent; /* Fundo transparente */
+            color: black; /* Texto preto */
+            border: none; /* Sem borda */
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px;
+            text-align: left;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        #selected-appliances-dropdown button .add-button {
+            background-color: #045389; /* Cor azul para o + */
+            color: white; /* Texto branco */
+            border: none; /* Sem borda */
+	    border-radius: 25px; /* Bordas com cantos arredondados */
+            cursor: pointer;
+            font-size: 14px;
+            padding: 5px 10px;
+            
+            margin-left: 10px;
+            transition: background-color 0.3s ease;
+        }
+        #selected-appliances-dropdown button:hover .add-button {
+            background-color: #2196F3; /* Cor azul mais escura ao passar o mouse */
+        }
+        #selected-appliances-dropdown button:hover {
+            background-color: #f0f0f0; /* Fundo mais claro ao passar o mouse */
+        }
+    </style>
+
+
+
+</head>
+
+
+
+
+
+
+
+
+
+
+<body class="l wt-page ac-h ac-i ac-o l-default l-d-border b-btn-sq b-btn-s-m b-btn-dn b-btn-bw-1 img-d-n img-t-u img-h-n line-solid b-e-ds lbox-d c-s-m hn-tbg wnd-free-bar-fixed wnd-fe desktop menu-ready">
+
+
+
+<div class="wnd-page l-page cs-gray-3 ac-dblue t-t-fs-m t-t-fw-l t-t-sp-n t-t-d-n t-s-fs-m t-s-fw-l t-s-sp-n t-s-d-n t-p-fs-s t-p-fw-l t-p-sp-n t-h-fs-m t-h-fw-l t-h-sp-n t-bq-fs-s t-bq-fw-l t-bq-sp-n t-bq-d-l t-btn-fw-l t-nav-fw-l t-pd-fw-l t-nav-tt-n">
+    <div class="l-w t cf t-13">
+        <div class="l-bg cf">
+            <div class="s-bg-l">
+                
+                
+            </div>
+        </div>
+
+
+
+
+
+        <header class="l-h cf">
+            <div class="sw cf">
+	<div class="sw-c cf"><section data-space="true" class="s s-hn s-hn-default wnd-mt-classic wnd-na-c logo-classic sc-dt wnd-w-max wnd-nh-m hn-no-bg hm-claims menu-default">
+	<div class="s-w">
+		<div class="s-o">
+
+			<div class="s-bg">
+                <div class="s-bg-l">
+                    
+                    
+                </div>
+			</div>
+
+			<div class="h-w h-f wnd-fixed">
+
+				<div class="n-l">
+					<div class="s-c menu-nav">
+						<div class="logo-block">
+							<div class="b b-l logo logo-default logo-nb exo2 logo-21 wnd-logo-with-text wnd-iar-3-1 b-ls-s" id="wnd_LogoBlock_95202405" data-wnd_mvc_type="wnd.fe.LogoBlock">
+	<div class="b-l-c logo-content">
+		<a class="b-l-link logo-link" href="/home/">
+
+			<div class="b-l-image logo-image">
+				<div class="b-l-image-w logo-image-cell">
+                    <picture><source type="image/webp" srcset="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000072-411e3411e5/450/226mm-removebg-preview.webp?ph=dbc55ccc42 450w, https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000072-411e3411e5/700/226mm-removebg-preview.webp?ph=dbc55ccc42 462w, https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000072-411e3411e5/226mm-removebg-preview.webp?ph=dbc55ccc42 462w" sizes="(min-width: 600px) 450px, (min-width: 360px) calc(100vw * 0.8), 100vw"><img src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000071-7319e731a0/226mm-removebg-preview.png?ph=dbc55ccc42" alt="" width="462" height="142" class="wnd-logo-img"></picture>
+				</div>
+			</div>
+
+			
+
+			<div class="b-l-br logo-br"></div>
+
+			<div class="b-l-text logo-text-wrapper">
+				<div class="b-l-text-w logo-text">
+					<span class="b-l-text-c logo-text-cell"><strong>refrigeração</strong></span>
+				</div>
+			</div>
+
+		</a>
+	</div>
+</div>
+						</div>
+						<div class="cart-and-mobile">
+							
+
+                            
+
+							<div id="menu-mobile">
+								<a href="#" id="menu-submit"><span></span>Menu</a>
+							</div>
+						</div>
+
+						<div id="menu-slider">
+							<div id="menu-block">
+								<nav id="menu"><div class="menu-font menu-wrapper">
+	<a href="#" class="menu-close" rel="nofollow" title="Close Menu"></a>
+	<ul class="level-1">
+		<li class="wnd-homepage">
+			<a class="menu-item" href="index.html"><span class="menu-item-text">Início</span></a>
+			
+		</li><li>
+			<a class="menu-item" href="sobrenos.html"><span class="menu-item-text">Sobre nós</span></a>
+			
+		</li><li>
+			<a class="menu-item" href="contatos.html"><span class="menu-item-text">Contato</span></a>
+			
+		</li>
+	</ul>
+	<span class="more-text">Mais</span>
+</div></nav>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+</section></div>
+</div>
+
+
+
+
+
+        </header>
+        <main class="l-m cf">
+            <div class="sw cf">
+	<div class="sw-c cf"><section class="s s-hm s-hm-claims cf sc-ml wnd-background-image wnd-w-default wnd-s-higher wnd-h-auto wnd-nh-m wnd-p-cc hn-no-bg hn-default">
+	<div class="s-w cf">
+		<div class="s-o cf">
+			<div class="s-bg">
+                <div class="s-bg-l wnd-background-image fx-none bgpos-top-center bgatt-scroll">
+                    <picture><source type="image/webp" srcset="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000005-5408554087/700/14712112-ilustracaoial-fundo-de-natal-em-tons-de-azul-com-uma-moldura-de-flocos-de-neve-de-diferentes-formas-e-tamanhos-tema-de-ano-novo-vetor.webp?ph=dbc55ccc42 700w, https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000005-5408554087/14712112-ilustracaoial-fundo-de-natal-em-tons-de-azul-com-uma-moldura-de-flocos-de-neve-de-diferentes-formas-e-tamanhos-tema-de-ano-novo-vetor.webp?ph=dbc55ccc42 1372w, https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000005-5408554087/14712112-ilustracaoial-fundo-de-natal-em-tons-de-azul-com-uma-moldura-de-flocos-de-neve-de-diferentes-formas-e-tamanhos-tema-de-ano-novo-vetor.webp?ph=dbc55ccc42 2x" sizes="100vw"><img src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000004-4c62f4c631/14712112-ilustracaoial-fundo-de-natal-em-tons-de-azul-com-uma-moldura-de-flocos-de-neve-de-diferentes-formas-e-tamanhos-tema-de-ano-novo-vetor.jpeg?ph=dbc55ccc42" width="1372" height="980" alt="" fetchpriority="high"></picture>
+                    
+                </div>
+			</div>
+			<div class="h-c s-c">
+				<div class="h-c-b">
+					<div class="h-c-b-i">
+						<h1 class="claim cf"><span class="sit b claim-default claim-nb exo2 claim-64">
+	<span class="sit-w"><span class="sit-c"><font>Calculadora de BTUs</font></span></span>
+</span></h1>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="s s-basic cf sc-w   wnd-w-default wnd-s-normal wnd-h-auto">
+	<div class="s-w cf">
+		<div class="s-o s-fs cf">
+			<div class="s-bg cf">
+				<div class="s-bg-l">
+                    
+					
+				</div>
+			</div>
+			<div class="s-c s-fs cf">
+				<div class="ez cf wnd-no-cols">
+	<div class="ez-c"><div class="b-img b-img-default b b-s cf wnd-orientation-landscape wnd-type-image img-s-n" style="margin-left:27.18%;margin-right:27.18%;" id="wnd_ImageBlock_393237736">
+	<div class="b-img-w">
+		<div class="b-img-c" style="padding-bottom:30.74%;text-align:center;">
+            <picture><source type="image/webp" srcset="engkingcomfundo.jpeg" sizes="100vw"><img id="wnd_ImageBlock_393237736_img" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000071-7319e731a0/226mm-removebg-preview.png?ph=dbc55ccc42" alt="" width="462" height="142" loading="lazy" style="top:0%;left:0%;width:100%;height:100%;position:absolute;"></picture>
+			</div>
+		
+	</div>
+</div></div>
+</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+<section class="s s-basic cf sc-w   wnd-w-default wnd-s-normal wnd-h-auto">
+	<div class="s-cd cf">
+		<div class="s-o s-fs cf">
+			<div class="s-bg cf">
+				<div class="s-bg-l">
+                    
+					
+				</div>
+			</div>
+			<div class="s-c s-fs cf">
+				<div class="ez cf wnd-no-cols">
+	<div class="ez-c"><div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf">
+
+
+ <div class="calculator">
+        <h2>Calculadora de BTUs</h2>
+        <div class="form-group">
+            <label for="area">Área (m²) ou Volume (m³):</label>
+            <input type="text" id="area" placeholder="Informe a área em metros quadrados ou o volume em metros cúbicos">
+            <select id="area-type">
+                <option value="m2">Área (m²)</option>
+                <option value="m3">Volume (m³)</option>
+            </select>
+            <small>Se souber o volume, é mais preciso para o cálculo.</small>
+        </div>
+
+
+
+<div class="form-group">
+    <label for="pessoas">Número de Pessoas:</label>
+    <select id="pessoas" onchange="verificarOpcaoOutro()">
+        <option value="0">Selecione...</option>
+        <option value="1">1 pessoa</option>
+        <option value="2">2 pessoas</option>
+        <option value="3">3 pessoas</option>
+        <option value="4">4 pessoas</option>
+        <option value="5">5 pessoas</option>
+        <option value="6">6 pessoas</option>
+        <option value="7">7 pessoas</option>
+        <option value="8">8 pessoas</option>
+        <option value="9">9 pessoas</option>
+        <option value="10">10 pessoas</option>
+        <option value="outros">Mais...</option>
+    </select>
+    <input type="text" id="outrosInput" style="display: none; margin-top: 10px;" placeholder="Insira o número de pessoas" oninput="validarOutrosInput()">
+    <small>Média para uma pessoa adulta com em média de 80kg.</small>
+</div>
+
+
+<script>
+function verificarOpcaoOutro() {
+    var select = document.getElementById("pessoas");
+    var outrosInput = document.getElementById("outrosInput");
+    if (select.value === "outros") {
+        outrosInput.style.display = "block";
+    } else {
+        outrosInput.style.display = "none";
+        outrosInput.value = "";
+    }
+}
+
+
+function validarOutrosInput() {
+    var outrosInput = document.getElementById("outrosInput");
+    var value = outrosInput.value;
+    if (!/^\d+$/.test(value)) {
+        outrosInput.value = value.slice(0, -1);
+    }
+}
+
+
+function obterNumeroDePessoas() {
+    var select = document.getElementById("pessoas");
+    var outrosInput = document.getElementById("outrosInput");
+
+    if (select.value === "outros") {
+        return parseInt(outrosInput.value) || 0;
+    } else {
+        return parseInt(select.value);
+    }
+}
+</script>
+
+
+        <div class="form-group">
+            <label for="aberturas">Quantidade de Aberturas (Portas e Janelas):</label>
+            <select id="aberturas">
+                <option value="0">Selecione...</option>
+                <option value="1">1 abertura</option>
+                <option value="2">2 aberturas</option>
+                <option value="3">3 aberturas</option>
+                <option value="4">4 aberturas</option>
+                <option value="5">5 aberturas</option>
+                <option value="6">6 aberturas</option>
+                <option value="7">7 aberturas</option>
+                <option value="8">8 aberturas</option>
+                <option value="9">9 aberturas</option>
+                <option value="10">10 aberturas</option>
+                <option value="11">11 aberturas</option>
+                <option value="12">12 aberturas</option>
+                <option value="13">13 aberturas</option>
+                <option value="14">14 aberturas</option>
+                <option value="15">15 aberturas</option>
+            </select>
+        </div>
+
+
+        <div class="form-group">
+            <label>Recebe sol direto
+                <input type="checkbox" id="lado-sol" class="toggle-checkbox">
+            </label>
+        </div>
+
+
+        <div class="form-group">
+            <label for="selected-appliances">Aparelhos eletrônicos:</label>
+            <div id="appliance-dropdown-container">
+                <input type="text" id="selected-appliances" placeholder="Selecione..." readonly>
+<div id="selected-appliances-dropdown">
+<button onclick="adicionarAparelho('computador')">Computador<span class="add-button">+</span></button>
+<button onclick="adicionarAparelho('televisao')">Televisão<span class="add-button">+</span></button>
+<button onclick="adicionarAparelho('ventilador')">Ventilador<span class="add-button">+</span></button>
+<button onclick="adicionarAparelho('som')">Som<span class="add-button">+</span></button>
+<button onclick="adicionarAparelho('geladeira')">Geladeira<span class="add-button">+</span></button>
+<button onclick="adicionarAparelho('outro')">Outros<span class="add-button">+</span></button>
+</div>
+</div>
+</div>
+
+
+<div class="selected-appliances">
+<h3>Aparelhos Selecionados:</h3>
+<ul id="aparelhos-list"></ul>
+</div>
+<div class="form-group">
+<button class="calcular-button" onclick="calcularBTU()">Calcular BTUs</button>
+</div>
+<div class="result" id="resultado"></div>
+</div>
+
+
+<script>
+    let aparelhosSelecionados = [];
+
+    document.getElementById('selected-appliances').addEventListener('focus', function() {
+        document.getElementById('selected-appliances-dropdown').style.display = 'block';
+    });
+
+    document.addEventListener('click', function(event) {
+        let dropdown = document.getElementById('selected-appliances-dropdown');
+        if (!dropdown.contains(event.target) && event.target.id !== 'selected-appliances') {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    function adicionarAparelho(tipo) {
+        let aparelho;
+        switch (tipo) {
+            case 'computador':
+                aparelho = { nome: 'Computador', btu: 350 };
+                break;
+            case 'televisao':
+                aparelho = { nome: 'Televisão', btu: 200 };
+                break;
+            case 'ventilador':
+                aparelho = { nome: 'Ventilador', btu: 50 };
+                break;
+            case 'som':
+                aparelho = { nome: 'Som', btu: 100 };
+                break;
+            case 'geladeira':
+                aparelho = { nome: 'Geladeira', btu: 450 };
+                break;
+            case 'outro':
+                aparelho = { nome: 'Outros', btu: 150 };
+                break;
+        }
+        aparelhosSelecionados.push(aparelho);
+        atualizarListaAparelhos();
+    }
+
+    function removerAparelho(index) {
+        aparelhosSelecionados.splice(index, 1);
+        atualizarListaAparelhos();
+    }
+
+    function atualizarListaAparelhos() {
+        let listaAparelhos = document.getElementById('aparelhos-list');
+        listaAparelhos.innerHTML = '';
+        aparelhosSelecionados.forEach((aparelho, index) => {
+            let listItem = document.createElement('li');
+            listItem.textContent = `${aparelho.nome}`;
+
+            let removeButton = document.createElement('button');
+            removeButton.textContent = '×';
+            removeButton.className = 'remove-appliance';
+            removeButton.onclick = function() {
+                removerAparelho(index);
+            };
+            listItem.appendChild(removeButton);
+
+            listaAparelhos.appendChild(listItem);
+        });
+
+        if (aparelhosSelecionados.length > 0) {
+            document.querySelector('.selected-appliances').style.display = 'block';
+        } else {
+            document.querySelector('.selected-appliances').style.display = 'none';
+        }
+    }
+
+
+
+function calcularBTU() {
+    let areaInput = document.getElementById('area').value.trim().replace(',', '.');
+    let areaType = document.getElementById('area-type').value;
+
+    // Verificar se a entrada de área é válida
+    let area = parseFloat(areaInput);
+    if (isNaN(area) || area <= 0) {
+        document.getElementById('resultado').innerHTML = 'Erro na área ou volume';
+        return;
+    }
+
+    // Obter número de pessoas e aberturas usando obterNumeroDePessoas
+    let pessoas = obterNumeroDePessoas();
+    let aberturas = parseInt(document.getElementById('aberturas').value);
+    let ladoSol = document.getElementById('lado-sol').checked;
+
+    // Calcular BTU da área
+    let btuArea = 0;
+    if (areaType === 'm2') {
+        btuArea = area * 600;
+    } else if (areaType === 'm3') {
+        btuArea = area * 240; // Convertendo m³ para m² equivalente e calculando BTU
+    }
+
+    // Calcular BTU das pessoas, aberturas e ladoSol
+    let btuPessoas = pessoas > 0 ? pessoas * 600 : 0;
+    let btuAberturas = aberturas > 0 ? aberturas * 200 : 0;
+    let btuLadoSol = ladoSol ? 550 : 0;
+
+    // Calcular BTU dos aparelhos selecionados (supondo que 'aparelhosSelecionados' esteja definido)
+    let btuAparelhos = 0;
+    aparelhosSelecionados.forEach(aparelho => {
+        btuAparelhos += aparelho.btu;
+    });
+
+    // Calcular BTU total
+    let btuTotal = btuArea + btuPessoas + btuAberturas + btuLadoSol + btuAparelhos;
+
+    // Exibir resultado
+    document.getElementById('resultado').innerHTML = `Resultado: ${btuTotal} BTUs`;
+}
+</script>
+
+
+
+<script>
+    let aparelhosSelecionados = [];
+
+    document.getElementById('selected-appliances').addEventListener('focus', function() {
+        document.getElementById('selected-appliances-dropdown').style.display = 'block';
+    });
+
+    document.addEventListener('click', function(event) {
+        let dropdown = document.getElementById('selected-appliances-dropdown');
+        if (!dropdown.contains(event.target) && event.target.id !== 'selected-appliances') {
+            dropdown.style.display = 'none';
+        }
+    });
+
+    function removerAparelho(index) {
+        aparelhosSelecionados.splice(index, 1);
+        atualizarListaAparelhos();
+    }
+
+    function atualizarListaAparelhos() {
+        let listaAparelhos = document.getElementById('aparelhos-list');
+        listaAparelhos.innerHTML = '';
+        aparelhosSelecionados.forEach((aparelho, index) => {
+            let listItem = document.createElement('li');
+            listItem.textContent = `${aparelho.nome}`;
+
+            let removeButton = document.createElement('button');
+            removeButton.textContent = '×';
+            removeButton.className = 'remove-appliance';
+            removeButton.onclick = function() {
+                removerAparelho(index);
+            };
+            listItem.appendChild(removeButton);
+
+            listaAparelhos.appendChild(listItem);
+        });
+
+        if (aparelhosSelecionados.length > 0) {
+            document.querySelector('.selected-appliances').style.display = 'block';
+        } else {
+            document.querySelector('.selected-appliances').style.display = 'none';
+        }
+    }
+
+</script>
+</div>
+</div></div>
+</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+
+
+
+
+
+<section class="s s-basic-box cf sc-w   wnd-w-narrow wnd-s-normal wnd-h-auto">
+	<div class="s-w cf">
+		<div class="s-o s-fs box-space cf">
+			<div class="s-bg cf">
+                <div class="s-bg-l">
+                    
+                    
+                </div>
+			</div>
+			<div class="s-c s-fs sc-w cf">
+				<div class="ez cf wnd-no-cols">
+	<div class="ez-c"><div class="mt mt-image-left-float img-s-c b-s-t50 b-s-b50 b-s-l0 b-s-r0 cf imageLeftFloat grid-2">
+	<div class="mt-container">
+		<div class="mt-item cf">
+			<a class="mt-link" href="http://api.whatsapp.com/send/?phone=5585994118871&amp;text=Ol%C3%A1%2C+vim+do+site+EngKingRefrigera%C3%A7%C3%A3o+e+gostaria+de+mais+informa%C3%A7%C3%B5es.+&amp;type=phone_number&amp;app_absent=0" rel="nofollow" target="_blank">
+				<div class="b-img b-img-default b b-s cf wnd-orientation-square wnd-type-image" style="" id="wnd_ImageBlock_908906566">
+	<div class="b-img-w">
+		<div class="b-img-c">
+            <picture><source type="image/webp" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000056-aa3ddaa3e0/450/0sfx40-1.webp?ph=dbc55ccc42"><img id="wnd_ImageBlock_908906566_img" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000055-be272be274/0sfx40-3.png?ph=dbc55ccc42" alt="" width="100" height="100" loading="lazy" style=""></picture>
+			</div>
+		
+	</div>
+</div>
+				<div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf"><h3 class="wnd-align-left"><font class="wnd-font-size-90"><font class="wnd-font-size-90">85 99411-8871</font></font></h3>
+</div>
+</div>
+			</a>
+		</div>
+	</div>
+</div><div class="mt mt-image-left-float img-s-c b-s-t50 b-s-b50 b-s-l0 b-s-r0 cf imageLeftFloat grid-2">
+	<div class="mt-container">
+		<div class="mt-item cf">
+			<a class="mt-link" href="http://www.instagram.com/engking_refrigeracao/" target="_blank">
+				<div class="b-img b-img-default b b-s cf wnd-orientation-square wnd-type-image" style="" id="wnd_ImageBlock_167209150">
+	<div class="b-img-w">
+		<div class="b-img-c">
+            <picture><source type="image/webp" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000062-1b4261b428/450/0sfx40-18.webp?ph=dbc55ccc42"><img id="wnd_ImageBlock_167209150_img" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000061-70a6270a65/0sfx40-4.png?ph=dbc55ccc42" alt="" width="100" height="100" loading="lazy" style=""></picture>
+			</div>
+		
+	</div>
+</div>
+				<div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf"><h3 class="wnd-align-left"><font class="wnd-font-size-90"><font class="wnd-font-size-80">@engking_refrigeracao</font></font><font class="wnd-font-size-90"></font></h3>
+</div>
+</div>
+			</a>
+		</div>
+	</div>
+</div><div class="mt mt-image-left-float img-s-c b-s-t50 b-s-b50 b-s-l0 b-s-r0 cf imageLeftFloat grid-2">
+	<div class="mt-container">
+		<div class="mt-item cf">
+			<a class="mt-link" href="mailto:engkingservicos@gmail.com" rel="nofollow" target="_blank">
+				<div class="b-img b-img-default b b-s cf wnd-orientation-landscape wnd-type-image" style="" id="wnd_ImageBlock_542631918">
+	<div class="b-img-w">
+		<div class="b-img-c">
+            <picture><source type="image/webp" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000060-71bd171bd3/450/0sfx40-9.webp?ph=dbc55ccc42"><img id="wnd_ImageBlock_542631918_img" src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000059-ba10eba111/0sfx40-92.png?ph=dbc55ccc42" alt="" width="122" height="109" loading="lazy" style=""></picture>
+			</div>
+		
+	</div>
+</div>
+				<div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf"><h3 class="wnd-align-left"><font class="wnd-font-size-90"><font class="wnd-font-size-80">engkingservicos@gmail.com</font></font></h3>
+</div>
+</div>
+			</a>
+		</div>
+	</div>
+</div></div>
+</div>
+			</div>
+		</div>
+	</div>
+</section><section class="s s-hc s-hc-cta-claim cf sc-ml wnd-background-image  wnd-w-wide wnd-s-normal wnd-hh-auto wnd-p-cc">
+	<div class="s-w cf">
+		<div class="s-o cf">
+			<div class="s-bg cf">
+                <div class="s-bg-l wnd-background-image fx-none bgpos-center-center bgatt-scroll overlay-black-light">
+                    <picture><source type="image/webp" srcset="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000003-202192021a/700/fundo-do-inverno-flocos-de-neve-ilustra%C3%A7%C3%A3o-vetor-126715265-8.webp?ph=dbc55ccc42 700w, https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000003-202192021a/fundo-do-inverno-flocos-de-neve-ilustra%C3%A7%C3%A3o-vetor-126715265-8.webp?ph=dbc55ccc42 1592w, https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000003-202192021a/fundo-do-inverno-flocos-de-neve-ilustra%C3%A7%C3%A3o-vetor-126715265-8.webp?ph=dbc55ccc42 2x" sizes="100vw"><img src="https://dbc55ccc42.cbaul-cdnwnd.com/f9ba4fc2119d9d8de73d3ccd003538f5/200000002-d88add88af/fundo-do-inverno-flocos-de-neve-ilustra%C3%A7%C3%A3o-vetor-126715265-1.png?ph=dbc55ccc42" width="1592" height="587" alt="" loading="lazy"></picture>
+                    
+                </div>
+			</div>
+			<div class="s-c cf">
+				<div class="s-hc-c">
+					<h2 class="s-hc-claim claim i-a"><span class="sit b claim-wings claim-nb exo2 claim-52">
+	<span class="sit-w"><span class="sit-c"><font class="wnd-font-size-80" style="color: #FFFFFF; font-weight: bold; -webkit-text-stroke: 1px #FFFFFF; text-stroke: 1px black;">Deixe a instalação do seu ar condicionado nas mãos de profissionais</font></span></span>
+
+
+
+
+
+
+</span></h2>
+
+
+
+    <div class="b b-s b-s-t150 b-s-b150 b-btn b-btn-3">
+        <div class="b-btn-c i-a">
+            <a class="b-btn-l custom-button" href="http://api.whatsapp.com/send/?phone=5585994118871&amp;text=Ol%C3%A1%2C+vim+do+site+EngKingRefrigera%C3%A7%C3%A3o+e+gostaria+de+mais+informa%C3%A7%C3%B5es.+&amp;type=phone_number&amp;app_absent=0" rel="nofollow" target="_blank" style="border-radius: 25px;">
+                <span class="b-btn-t">Orçamento grátis</span>
+            </a>
+        </div>
+    </div>
+
+
+
+			</div>
+			</div>
+		</div>
+	</div>
+</section><section class="s s-basic cf sc-w   wnd-w-default wnd-s-normal wnd-h-auto">
+	<div class="s-w cf">
+		<div class="s-o s-fs cf">
+			<div class="s-bg cf">
+				<div class="s-bg-l">
+                    
+					
+				</div>
+			</div>
+			<div class="s-c s-fs cf">
+				<div class="ez cf wnd-no-cols">
+	<div class="ez-c"><div class="b b-s b-s-t150 b-s-b150 b-btn b-btn-5 wnd-align-center">
+	<div class="b-btn-c i-a">
+		<a class="b-btn-l" href="outroservicos.html">
+			<span class="b-btn-t">Outros serviços</span>
+		</a>
+	</div>
+</div></div>
+</div>
+			</div>
+		</div>
+	</div>
+</section><section class="s s-basic cf sc-w   wnd-w-narrow wnd-s-normal wnd-h-auto">
+	<div class="s-w cf">
+		<div class="s-o s-fs cf">
+			<div class="s-bg cf">
+				<div class="s-bg-l">
+                    
+					
+				</div>
+			</div>
+			<div class="s-c s-fs cf">
+				<div class="ez cf">
+	<div class="ez-c"><div class="cw cf">
+	<div class="cw-c cf"><div class="c cf" style="width:42.773%;">
+	<div class="c-c cf"><div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf"><p class="wnd-align-center"><a href="index.html"><font data-j-w="false" class="wnd-font-size-80">Início</font></a></p>
+</div>
+</div></div>
+</div><div class="c cf" style="width:12.613%;">
+	<div class="c-c cf"><div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf"><p class="wnd-align-center"><a href="sobrenos.html"><font class="wnd-font-size-80">Sobre nós</font></a></p>
+</div>
+</div></div>
+</div><div class="c cf" style="width:44.614%;">
+	<div class="c-c cf"><div class="b b-text cf">
+	<div class="b-c b-text-c b-s b-s-t60 b-s-b60 b-cs cf"><p class="wnd-align-center"><a href="contatos.html"><font class="wnd-font-size-80">Contatos</font></a></p>
+</div>
+</div></div>
+</div></div>
+</div></div>
+</div>
+			</div>
+		</div>
+	</div>
+</section></div>
+</div>
+        </main>
+        <footer class="l-f cf">
+            <div class="sw cf">
+	<div class="sw-c cf"><section data-wn-border-element="s-f-border" class="s s-f s-f-double s-f-simple sc-w   wnd-w-wider wnd-s-higher">
+	<div class="s-w">
+		<div class="s-o">
+			<div class="s-bg">
+                <div class="s-bg-l">
+                    
+                    
+                </div>
+			</div>
+			<div class="s-c s-f-l-w s-f-border border-top">
+				<div class="s-f-l b-s b-s-t0 b-s-b0">
+					<div class="s-f-l-c s-f-l-c-first">
+						<div class="s-f-cr"><span class="it b link">
+	<span class="it-c">EngKing Serviços</span>
+</span></div>
+						<div class="s-f-cr"><span class="it b link">
+	<span class="it-c">Todos os direitos reservados&nbsp;2024</span>
+</span></div>
+					</div>
+					<div class="s-f-l-c s-f-l-c-last">
+						<div class="s-f-sf">
+                            <span class="sf b">
+<span class="sf-content sf-c link">Desenvolvido por <a href="index.html">EngKing</a></span>
+</span>
+                            <span class="sf-cbr link">
+    <a href="#" rel="nofollow">Cookies </a>
+</span>
+                            
+                            
+                            
+                        </div>
+                        <div class="s-f-l-c-w">
+                            <div class="s-f-lang lang-select cf">
+	
+</div>
+                            <div class="s-f-ccy ccy-select cf">
+	
+</div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body></html>
