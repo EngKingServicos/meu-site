@@ -12,8 +12,8 @@
 
         // Redirecionamento baseado no URL atual
         if (urlAtual.endsWith('/inicio')) {
-            // Redireciona /inicio para /index.html sem alterar a URL visível
-            window.location.replace('/index.html');
+            // Redireciona /inicio para https://engkingservicos.com.br/ que abre por padrão index.html
+            window.location.replace('https://engkingservicos.com.br/');
         } else if (!urlAtual.endsWith('.html')) {
             // Redireciona para o URL com .html se não termina com .html
             var novoUrl = urlAtual + '.html';
