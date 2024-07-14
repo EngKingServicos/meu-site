@@ -7,14 +7,18 @@
 </head>
 <body>
     <script type="text/javascript">
-        // Remove a extensão .html do URL
+        // Remove a extensão .html do URL atual
         var urlSemExtensao = window.location.href.replace(/\.html$/, '');
 
-        // Substitui /index.html por /inicio
-        var novoUrl = urlSemExtensao.replace(/\/inicio$/, '/index.html');
-
-        // Redireciona para o novo URL
-        window.location.href = novoUrl;
+        // Verifica se o URL termina com /inicio
+        if (urlSemExtensao.endsWith('/inicio')) {
+            // Redireciona para o novo URL com /index.html
+            var novoUrl = urlSemExtensao.replace(/\/inicio$/, '/index.html');
+            window.location.href = novoUrl;
+        } else {
+            // Redireciona para o URL sem extensão .html
+            window.location.href = urlSemExtensao;
+        }
     </script>
 </body>
 </html>
