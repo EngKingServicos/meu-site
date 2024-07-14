@@ -11,8 +11,11 @@
         var urlSemExtensao = window.location.href.replace(/\.html$/, '');
 
         // Substitui /index.html por /inicio
-        var novoUrl = window.location.href.replace(/\index.html$/, 'inicio');
+        var novoUrl = urlSemExtensao.replace(/\/index\.html$/, '/inicio');
 
+        // Redireciona para o novo URL
+        window.location.href = novoUrl;
     </script>
 </body>
 </html>
+
