@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página não encontrada</title>
     <script>
+        // Verifica se a página foi carregada com "/inicio" e redireciona para "/index.html"
+        if (path === '/inicio' || path === '/inicio/') {
+            window.location.replace('/index.html');
+        }
         // Verifica se a página foi carregada com extensão .html e redireciona para URL limpa
         const path = window.location.pathname;
         if (path.endsWith('.html')) {
@@ -12,10 +16,7 @@
             window.location.replace(newPath);
         }
 
-        // Verifica se a página foi carregada com "/inicio" e redireciona para "/index.html"
-        if (path === '/inicio' || path === '/inicio/') {
-            window.location.replace('/index.html');
-        }
+
     </script>
 </head>
 <body>
