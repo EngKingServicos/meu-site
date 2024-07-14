@@ -7,17 +7,20 @@
 </head>
 <body>
     <script type="text/javascript">
-        // Remove a extensão .html do URL atual
-        var urlSemExtensao = window.location.href.replace(/\.html$/, '');
+        // URL atual
+        var urlAtual = window.location.href;
 
-        // Verifica se o URL termina com /inicio
-        if (urlSemExtensao.endsWith('/inicio')) {
-            // Redireciona para o novo URL com /index.html
-            var novoUrl = urlSemExtensao.replace(/\/inicio$/, '/index.html');
+        // Redirecionamento baseado no URL atual
+        if (urlAtual.endsWith('/inicio')) {
+            // Redireciona /inicio para /index.html
+            window.location.href = '/index.html';
+        } else if (!urlAtual.endsWith('.html')) {
+            // Redireciona para o URL com .html se não termina com .html
+            var novoUrl = urlAtual + '.html';
             window.location.href = novoUrl;
         } else {
-            // Redireciona para o URL sem extensão .html
-            window.location.href = urlSemExtensao;
+            // Redireciona para o URL principal, se necessário
+            window.location.href = 'https://engkingservicos.com.br/';
         }
     </script>
 </body>
