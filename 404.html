@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="0;url=https://engkingservicos.com.br/">
-    <title>Redirecionando...</title>
+    <title>ERRO 404</title>
 </head>
 <body>
     <script type="text/javascript">
@@ -11,11 +11,12 @@
         var urlSemExtensao = window.location.href.replace(/\.html$/, '');
 
         // Substitui /index.html por /inicio
-        var novoUrl = urlSemExtensao.replace(/\/index.html$/, '/inicio');
+        var novoUrl = window.location.href.replace(/\index.html$/, 'inicio');
 
-        // Redireciona para o novo URL
-        window.location.href = novoUrl;
     </script>
+
+    <div id="text-container">ERRO 404</div>
+
+
 </body>
 </html>
-
